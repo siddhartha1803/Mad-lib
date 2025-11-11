@@ -1,53 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mad Lib Generator</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mad Lib Creator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+    <div class="container">
 
-<div class="box">
-    <h1>Mad Lib Creator</h1>
+        <h1 class="title">Mad Lib Creator</h1>
 
-    <form action="/ITC505/lab-7/submit" method="POST">
+        <form action="/ITC505/lab-7/submit" method="POST" class="form-box">
 
-        <label for="animal">Animal:</label>
-        <input type="text" id="animal" name="animal" required />
+            <label for="animal">Animal:</label>
+            <input type="text" id="animal" name="animal" required>
 
-        <!-- <label for="adjective">Adjective:</label> -->
-        <input type="text" id="adjective" name="adjective" required />
+            <label for="adjective">Adjective:</label>
+            <input type="text" id="adjective" name="adjective" required>
 
-        <label for="verb">Verb:</label>
-        <input type="text" id="verb" name="verb" required />
+            <label for="verb">Verb:</label>
+            <input type="text" id="verb" name="verb" required>
 
-        <label for="object">Object:</label>
-        <input type="text" id="object" name="object" required />
+            <label for="object">Object:</label>
+            <input type="text" id="object" name="object" required>
 
-        <label for="number">Number:</label>
-        <input type="text" id="number" name="number" required />
+            <label for="number">Number:</label>
+            <input type="number" id="number" name="number" required>
 
-        <button type="submit">Generate Story</button>
-    </form>
+            <button type="submit" class="submit-btn">Generate Story</button>
+        </form>
 
-    <div class="addendum">
-        <h2>Addendum</h2>
-        <p>
-            To complete this lab, I created an ExpressJS server that accepts form
-            submissions and dynamically builds a Mad Lib story.  
-            I ensured proper form validation, route handling, and static file serving.
-        </p>
+        <section class="addendum">
+            <h2>Addendum</h2>
+            <p>
+                During the development of this Mad Lib assignment, I encountered several issues involving form
+                submission, routing, and output formatting. The first challenge was handling the POST request properly;
+                initially the values sent from the form were not being captured until I enabled body parsing using
+                <code>express.urlencoded()</code>. This ensured that all form fields were available through
+                <code>req.body</code>.
+            </p>
+            <p>
+                The next challenge involved route conflicts with static file serving. My server returned 404 errors
+                because custom routes were defined before <code>express.static()</code>. Once I reordered the routes so
+                that static files loaded first, the HTML and CSS began functioning properly.
+            </p>
+            <p>
+                I also had to address empty form submissions. Without validation, incomplete inputs produced broken Mad
+                Lib stories. I implemented simple backend checks to verify that each field contained a value before
+                generating the final output.
+            </p>
+            <p>
+                Finally, I improved the readability of the generated story by switching from basic string concatenation
+                to template literals. This allowed the story to be structured clearly and formatted in a way that matched
+                the intended narrative style.
+            </p>
+        </section>
     </div>
-</div>
 
-<footer>
-    <p>Last updated: <span id="lastModified"></span></p>
-</footer>
+    <footer>
+        <p>Last updated:
+            <span id="lastModified"></span>
+        </p>
+    </footer>
 
-<script>
-    document.getElementById("lastModified").textContent = document.lastModified;
-</script>
-
+    <script>
+        document.getElementById('lastModified').textContent = document.lastModified;
+    </script>
 </body>
 </html>
