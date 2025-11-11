@@ -1,67 +1,99 @@
-
+/* Page Background */
 body {
-    font-family: Verdana, sans-serif;
-    background: #e8eef8;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #e7ecf5;
     margin: 0;
     padding: 0;
 }
 
-.box {
-    max-width: 620px;
-    margin: 50px auto;
-    background: white;
+/* Main Container */
+.container {
+    max-width: 700px;
+    margin: 40px auto;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
 }
 
-h1 {
+/* Title */
+.title {
     text-align: center;
-    color: #2b3a67;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1f2a55;
+}
+
+/* Form Layout */
+.form-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
 }
 
 label {
-    display: block;
-    margin-top: 15px;
     font-weight: bold;
+    color: #333;
 }
 
-input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    border-radius: 5px;
-    border: 1px solid #bbb;
-    font-size: 15px;
-}
-
-button {
-    width: 100%;
-    margin-top: 20px;
+input[type="text"],
+input[type="number"] {
     padding: 12px;
-    font-size: 16px;
-    border: none;
-    background: #2b3a67;
-    color: white;
     border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f8f9fc;
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4a5fc1;
+    box-shadow: 0 0 5px rgba(74, 95, 193, 0.4);
+}
+
+/* Submit Button */
+.submit-btn {
+    margin-top: 10px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #2f3e85;
+    color: white;
+    border: none;
+    border-radius: 8px;
     cursor: pointer;
 }
 
-button:hover {
-    background: #1f2a52;
+.submit-btn:hover {
+    background-color: #22316c;
 }
 
+/* Addendum Section */
 .addendum {
-    margin-top: 30px;
-    padding: 15px;
-    background: #f2f4ff;
-    border-left: 5px solid #2b3a67;
+    margin-top: 40px;
+    background-color: #eef1fb;
+    border-left: 6px solid #2f3e85;
+    padding: 20px;
     border-radius: 6px;
 }
 
+.addendum h2 {
+    margin-top: 0;
+    color: #1f2a55;
+}
+
+.addendum p {
+    text-align: justify;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Footer */
 footer {
     text-align: center;
-    margin-top: 40px;
-    font-size: 14px;
-    color: #444;
+    margin-top: 20px;
+    padding: 10px 0;
+    color: #333;
+    font-size: 0.9rem;
 }
